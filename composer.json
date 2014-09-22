@@ -1,0 +1,24 @@
+{
+    "name": "anime-db/shikimori-widget-bundle",
+    "license": "GPL-3.0",
+    "type": "library",
+    "description": "Plugin AniDB for the catalog Anime DB",
+    "homepage": "http://github.com/anime-db/shikimori-widget-bundle",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "AnimeDb\\Bundle\\ShikimoriWidgetBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AnimeDb\\Bundle\\ShikimoriWidgetBundle\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "anime-db/catalog-bundle": ">=0.4.5",
+        "anime-db/shikimori-browser-bundle": "0.1.*"
+    },
+    "minimum-stability": "dev"
+}
