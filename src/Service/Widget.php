@@ -157,21 +157,51 @@ class Widget
     public function getWidgetItem(array $item) {
         $entity = new ItemWidget();
 
-        // set name
-        if ($this->locale == 'ru' && $item['russian']) {
-            $entity->setName($item['russian']);
-        } elseif ($this->locale == 'ja' && $item['japanese']) {
-            $entity->setName($item['japanese'][0]);
-        } elseif ($this->locale == 'en' && $item['english']) {
-            $entity->setName($item['english'][0]);
-        } else {
-            $entity->setName($item['name']);
-        }
+        $entity->setName($this->getItemName($item));
         $entity->setLink($this->browser->getHost().$item['url']);
         $entity->setCover($this->browser->getHost().$item['image']['original']);
 
-        // find item by sources
-        $sources = [$entity->getLink()];
+        $catalog_item = $this->getCatalogItem($item);
+        if ($catalog_item instanceof Item) {
+            $entity->setItem($catalog_item);
+        } elseif ($this->filler instanceof Filler) {
+            $entity->setLinkForFill($this->filler->getLinkForFill($entity->getLink()));
+        }
+
+        return $entity;
+    }
+
+    /**
+     * Get item name
+     *
+     * @param array $item
+     *
+     * @return string
+     */
+    public function getItemName(array $item)
+    {
+        if ($this->locale == 'ru' && $item['russian']) {
+            return $item['russian'];
+        }
+        if ($this->locale == 'ja' && $item['japanese']) {
+            return $item['japanese'][0];
+        }
+        if ($this->locale == 'en' && $item['english']) {
+            return $item['english'][0];
+        }
+        return $item['name'];
+    }
+
+    /**
+     * Get catalog item
+     *
+     * @param array $item
+     *
+     * @return \AnimeDb\Bundle\CatalogBundle\Entity\Item|null
+     */
+    public function getCatalogItem(array $item)
+    {
+        $sources = [$this->browser->getHost().$item['url']];
         if (!empty($item['world_art_id'])) {
             $sources[] = str_replace('#ID#', $item['world_art_id'], self::WORLD_ART_URL);
         }
@@ -183,14 +213,10 @@ class Widget
         }
         /* @var $source \AnimeDb\Bundle\CatalogBundle\Entity\Source|null */
         $source = $this->repository->findOneBy(['url' => $sources]);
-
         if ($source instanceof Source) {
-            $entity->setItem($source->getItem());
-        } elseif ($this->filler instanceof Filler) {
-            $entity->setLinkForFill($this->filler->getLinkForFill($entity->getLink()));
+            return $source->getItem();
         }
-
-        return $entity;
+        return null;
     }
 
     /**
