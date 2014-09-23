@@ -1,0 +1,6 @@
+services:
+    anime_db.shikimori.widget:
+        class: AnimeDb\Bundle\ShikimoriWidgetBundle\Service\Widget
+        arguments: [ @anime_db.shikimori.browser, @doctrine, %locale% ]
+        calls:
+            - [setFiller, ['@?anime_db.shikimori.filler=']]
