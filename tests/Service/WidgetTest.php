@@ -188,4 +188,19 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($expected, $this->widget->hash($list));
     }
+
+    /**
+     * Test get item
+     */
+    public function testGetItem()
+    {
+        $id = 123;
+        $expected = ['foo', 'bar'];
+        $this->browser
+            ->expects($this->once())
+            ->method('get')
+            ->willReturn($expected)
+            ->with(str_replace('#ID#', $id, Widget::PATH_ITEM_INFO));
+        $this->assertEquals($expected, $this->widget->getItem($id));
+    }
 }
