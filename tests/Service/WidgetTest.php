@@ -416,6 +416,204 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Get names
+     *
+     * @return array
+     */
+    public function getNames()
+    {
+        return [
+            [
+                'foo',
+                'ru',
+                [
+                    'name' => 'foo',
+                    'russian' => '',
+                ]
+            ],
+            [
+                'bar',
+                'ru',
+                [
+                    'name' => 'foo',
+                    'russian' => 'bar',
+                ]
+            ],
+            [
+                'foo',
+                'ja',
+                [
+                    'name' => 'foo',
+                    'japanese' => [],
+                ]
+            ],
+            [
+                'bar',
+                'ja',
+                [
+                    'name' => 'foo',
+                    'japanese' => ['bar'],
+                ]
+            ],
+            [
+                'foo',
+                'en',
+                [
+                    'name' => 'foo',
+                    'english' => [],
+                ]
+            ],
+            [
+                'bar',
+                'en',
+                [
+                    'name' => 'foo',
+                    'english' => ['bar'],
+                ]
+            ]
+        ];
+    }
+
+    /**
+     * Test get item name
+     *
+     * @dataProvider getNames
+     *
+     * @param string $expected
+     * @param string $locale
+     * @param array $item
+     */
+    public function testGetItemName($expected, $locale, array $item)
+    {
+        $this->assertEquals($expected, $this->getWidget($locale)->getItemName($item));
+    }
+
+    public function getItemSources()
+    {
+        return [
+            [
+                [
+                    'http://example.com/foo'
+                ],
+                [
+                    'url' => '/foo'
+                ]
+            ],
+            [
+                [
+                    'http://example.com/foo'
+                ],
+                [
+                    'url' => '/foo',
+                    'world_art_id' => '',
+                    'myanimelist_id' => '',
+                    'ani_db_id' => ''
+                ]
+            ],
+            [
+                [
+                    'http://example.com/foo',
+                    str_replace('#ID#', 1, Widget::WORLD_ART_URL),
+                    str_replace('#ID#', 2, Widget::MY_ANIME_LIST_URL),
+                    str_replace('#ID#', 3, Widget::ANI_DB_URL)
+                ],
+                [
+                    'url' => '/foo',
+                    'world_art_id' => 1,
+                    'myanimelist_id' => 2,
+                    'ani_db_id' => 3
+                ]
+            ],
+            [
+                [
+                    'http://example.com/foo',
+                    str_replace('#ID#', 1, Widget::WORLD_ART_URL)
+                ],
+                [
+                    'url' => '/foo',
+                    'world_art_id' => 1,
+                    'myanimelist_id' => '',
+                    'ani_db_id' => ''
+                ]
+            ],
+            [
+                [
+                    'http://example.com/foo',
+                    str_replace('#ID#', 1, Widget::MY_ANIME_LIST_URL)
+                ],
+                [
+                    'url' => '/foo',
+                    'world_art_id' => '',
+                    'myanimelist_id' => 1,
+                    'ani_db_id' => ''
+                ]
+            ],
+            [
+                [
+                    'http://example.com/foo',
+                    str_replace('#ID#', 1, Widget::ANI_DB_URL)
+                ],
+                [
+                    'url' => '/foo',
+                    'world_art_id' => '',
+                    'myanimelist_id' => '',
+                    'ani_db_id' => 1
+                ]
+            ]
+        ];
+    }
+
+    /**
+     * Test get catalog item fail
+     *
+     * @dataProvider getItemSources
+     *
+     * @param array $sources
+     * @param array $item
+     */
+    public function testGetCatalogItemFail(array $sources, array $item) {
+        $this->repository
+            ->expects($this->once())
+            ->method('findOneBy')
+            ->willReturn(null)
+            ->with(['url' => $sources]);
+        $this->browser
+            ->expects($this->once())
+            ->method('getHost')
+            ->willReturn('http://example.com');
+        // test
+        $this->assertNull($this->widget->getCatalogItem($item));
+    }
+
+    /**
+     * Test get catalog item
+     *
+     * @dataProvider getItemSources
+     *
+     * @param array $sources
+     * @param array $item
+     */
+    public function testGetCatalogItem(array $sources, array $item) {
+        $catalog_item = $this->getMock('\AnimeDb\Bundle\CatalogBundle\Entity\Item');
+        $source = $this->getMock('\AnimeDb\Bundle\CatalogBundle\Entity\Source');
+        $source
+            ->expects($this->once())
+            ->method('getItem')
+            ->willReturn($catalog_item);
+        $this->repository
+            ->expects($this->once())
+            ->method('findOneBy')
+            ->willReturn($source)
+            ->with(['url' => $sources]);
+        $this->browser
+            ->expects($this->once())
+            ->method('getHost')
+            ->willReturn('http://example.com');
+        // test
+        $this->assertEquals($catalog_item, $this->widget->getCatalogItem($item));
+    }
+
+    /**
      * Test get item
      */
     public function testGetItem()
