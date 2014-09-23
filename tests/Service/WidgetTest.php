@@ -111,6 +111,13 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
                     'http://example.com/animes/1-foo',
                     'http://example.com/animes/2-bar'
                 ]
+            ],
+            [
+                123,
+                [
+                    'http://example.com/animes/123-foo',
+                    'http://example.com/animes/4-bar'
+                ]
             ]
         ];
     }
@@ -144,5 +151,41 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
             ->willReturn($sources);
         // test
         $this->assertEquals($expected, $this->widget->getItemId($item));
+    }
+
+    /**
+     * Get hash
+     *
+     * @return array
+     */
+    public function getHash()
+    {
+        return [
+            [
+                md5(''),
+                []
+            ],
+            [
+                md5(':1'),
+                [['id' => 1]]
+            ],
+            [
+                md5(':3:1:2'),
+                [['id' => 3], ['id' => 1], ['id' => 2]]
+            ]
+        ];
+    }
+
+    /**
+     * Test hash
+     *
+     * @dataProvider getHash
+     *
+     * @param string $expected
+     * @param array $list
+     */
+    public function testHash($expected, array $list)
+    {
+        $this->assertEquals($expected, $this->widget->hash($list));
     }
 }
