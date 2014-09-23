@@ -93,6 +93,7 @@ class Widget
      *
      * @param \AnimeDb\Bundle\ShikimoriBrowserBundle\Service\Browser $browser
      * @param \Doctrine\Bundle\DoctrineBundle\Registry $doctrine
+     * @param string $locale
      */
     public function __construct(Browser $browser, Doctrine $doctrine, $locale)
     {
