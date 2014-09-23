@@ -116,7 +116,7 @@ class Widget
      *
      * @param \AnimeDb\Bundle\CatalogBundle\Entity\Item $item
      *
-     * @return integer|false
+     * @return integer
      */
     public function getItemId(Item $item)
     {
@@ -125,10 +125,10 @@ class Widget
             if (strpos($source->getUrl(), $this->browser->getHost()) === 0 &&
                 preg_match(self::REG_ITEM_ID, $source->getUrl(), $match)
             ) {
-                return $match['id'];
+                return (int)$match['id'];
             }
         }
-        return false;
+        return 0;
     }
 
     /**

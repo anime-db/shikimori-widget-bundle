@@ -96,11 +96,11 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
     {
         return [
             [
-                false,
+                0,
                 []
             ],
             [
-                false,
+                0,
                 [
                     'http://google.com/',
                     'http://example.com/'
@@ -128,7 +128,7 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
      *
      * @dataProvider getSources
      *
-     * @param integer|false $expected
+     * @param integer $expected
      * @param array $sources
      */
     public function testGetItemId($expected, array $sources)
