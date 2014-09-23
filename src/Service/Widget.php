@@ -187,14 +187,14 @@ class Widget
         if ($source instanceof Source) {
             $entity->setItem($source->getItem());
         } elseif ($this->filler instanceof Filler) {
-            $entity->setLinkForFill($this->filler->getLinkForFill($this->browser->getHost().$item['url']));
+            $entity->setLinkForFill($this->filler->getLinkForFill($entity->getLink()));
         }
 
         return $entity;
     }
 
     /**
-     * Get item info
+     * Get item info by id
      *
      * @param integer $id
      *

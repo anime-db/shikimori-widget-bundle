@@ -82,6 +82,7 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
             ->with('AnimeDbCatalogBundle:Source');
 
         $this->widget = new Widget($this->browser, $doctrine, $locale);
+        $this->widget->setFiller();
 
         return $this->widget;
     }
@@ -187,6 +188,231 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
     public function testHash($expected, array $list)
     {
         $this->assertEquals($expected, $this->widget->hash($list));
+    }
+
+    /**
+     * Get items
+     *
+     * @return array
+     */
+    public function getItems()
+    {
+        $host = 'http://example.com';
+        return [
+            [
+                'ru',
+                'foo',
+                [
+                    $host.'/bar'
+                ],
+                [
+                    'name' => 'foo',
+                    'russian' => '',
+                    'url' => '/bar',
+                    'image' => [
+                        'original' => 'baz'
+                    ],
+                ]
+            ],
+            [
+                'ru',
+                'bar',
+                [
+                    $host.'/bar'
+                ],
+                [
+                    'name' => 'foo',
+                    'russian' => 'bar',
+                    'url' => '/bar',
+                    'image' => [
+                        'original' => 'baz'
+                    ],
+                    'world_art_id' => '',
+                    'myanimelist_id' => '',
+                    'ani_db_id' => ''
+                ]
+            ],
+            [
+                'ja',
+                'foo',
+                [
+                    $host.'/bar',
+                    str_replace('#ID#', 123, Widget::WORLD_ART_URL)
+                ],
+                [
+                    'name' => 'foo',
+                    'japanese' => [],
+                    'url' => '/bar',
+                    'image' => [
+                        'original' => 'baz'
+                    ],
+                    'world_art_id' => 123,
+                    'myanimelist_id' => '',
+                    'ani_db_id' => ''
+                ]
+            ],
+            [
+                'ja',
+                'bar',
+                [
+                    $host.'/bar',
+                    str_replace('#ID#', 123, Widget::MY_ANIME_LIST_URL)
+                ],
+                [
+                    'name' => 'foo',
+                    'japanese' => [
+                        'bar'
+                    ],
+                    'url' => '/bar',
+                    'image' => [
+                        'original' => 'baz'
+                    ],
+                    'world_art_id' => '',
+                    'myanimelist_id' => 123,
+                    'ani_db_id' => ''
+                ]
+            ],
+            [
+                'en',
+                'foo',
+                [
+                    $host.'/bar',
+                    str_replace('#ID#', 123, Widget::ANI_DB_URL)
+                ],
+                [
+                    'name' => 'foo',
+                    'english' => [],
+                    'url' => '/bar',
+                    'image' => [
+                        'original' => 'baz'
+                    ],
+                    'world_art_id' => '',
+                    'myanimelist_id' => '',
+                    'ani_db_id' => 123
+                ]
+            ],
+            [
+                'en',
+                'foo',
+                [
+                    $host.'/bar',
+                    str_replace('#ID#', 1, Widget::WORLD_ART_URL),
+                    str_replace('#ID#', 2, Widget::MY_ANIME_LIST_URL),
+                    str_replace('#ID#', 3, Widget::ANI_DB_URL)
+                ],
+                [
+                    'name' => 'foo',
+                    'english' => [],
+                    'url' => '/bar',
+                    'image' => [
+                        'original' => 'baz'
+                    ],
+                    'world_art_id' => 1,
+                    'myanimelist_id' => 2,
+                    'ani_db_id' => 3
+                ]
+            ],
+            [
+                'en',
+                'bar',
+                [
+                    $host.'/bar'
+                ],
+                [
+                    'name' => 'foo',
+                    'english' => [
+                        'bar'
+                    ],
+                    'url' => '/bar',
+                    'image' => [
+                        'original' => 'baz'
+                    ]
+                ],
+                null,
+                $host.'/link/to/fill/item'
+            ],
+            [
+                'fr',
+                'foo',
+                [
+                    $host.'/bar'
+                ],
+                [
+                    'name' => 'foo',
+                    'url' => '/bar',
+                    'image' => [
+                        'original' => 'baz'
+                    ]
+                ],
+                $this->getMock('\AnimeDb\Bundle\CatalogBundle\Entity\Item')
+            ]
+        ];
+    }
+
+    /**
+     * Test get widget item
+     *
+     * @dataProvider getItems
+     *
+     * @param string $locale
+     * @param string $name
+     * @param array $sources
+     * @param array $info
+     * @param \PHPUnit_Framework_MockObject_MockObject|null $item
+     * @param string $fill_link
+     */
+    public function testGetWidgetItem(
+        $locale,
+        $name,
+        array $sources,
+        array $info,
+        \PHPUnit_Framework_MockObject_MockObject $item = null,
+        $fill_link = ''
+    ) {
+        $host = 'http://example.com';
+        $this->getWidget($locale);
+        $this->browser
+            ->expects($this->atLeastOnce())
+            ->method('getHost')
+            ->willReturn($host);
+        $source = null;
+        if ($item) {
+            $source = $this->getMock('\AnimeDb\Bundle\CatalogBundle\Entity\Source');
+            $source
+                ->expects($this->once())
+                ->method('getItem')
+                ->willReturn($item);
+        }
+        $this->repository
+            ->expects($this->once())
+            ->method('findOneBy')
+            ->willReturn($source)
+            ->with(['url' => $sources]);
+        // add filler
+        if ($fill_link) {
+            $filler = $this->getMockBuilder('\AnimeDb\Bundle\ShikimoriFillerBundle\Service\Filler')
+                ->disableOriginalConstructor()
+                ->getMock();
+            $filler
+                ->expects($this->once())
+                ->method('getLinkForFill')
+                ->willReturn($fill_link)
+                ->with($sources[0]);
+            $this->widget->setFiller($filler);
+        }
+
+        // test
+        $entity = $this->widget->getWidgetItem($info);
+
+        $this->assertEquals($name, $entity->getName());
+        $this->assertEquals($host.$info['url'], $entity->getLink());
+        $this->assertEquals($host.$info['image']['original'], $entity->getCover());
+        $this->assertEquals($item, $entity->getItem());
+        if (!$item && $fill_link) {
+            $this->assertEquals($fill_link, $entity->getLinkForFill());
+        } else {
+            $this->assertEmpty($entity->getLinkForFill());
+        }
     }
 
     /**
