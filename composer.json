@@ -21,7 +21,7 @@
         "anime-db/shikimori-browser-bundle": "0.1.*"
     },
     "require-dev": {
-        "anime-db/shikimori-filler-bundle": "0.1.*"
+        "anime-db/shikimori-filler-bundle": "dev-develop"
     },
     "suggest": {
         "anime-db/shikimori-filler-bundle": "Allows to add links to the filling items"
