@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\Loader;
  * @package AnimeDb\Bundle\ShikimoriWidgetBundle\DependencyInjection
  * @author  Peter Gribanov <info@peter-gribanov.ru>
  */
-class AnimeDbShikimoriWidgetBundleExtension extends Extension
+class AnimeDbShikimoriWidgetExtension extends Extension
 {
     /**
      * (non-PHPdoc)

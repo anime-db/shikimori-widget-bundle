@@ -10,7 +10,7 @@
 
 namespace AnimeDb\Bundle\ShikimoriWidgetBundle\Tests\DependencyInjection;
 
-use AnimeDb\Bundle\ShikimoriWidgetBundle\DependencyInjection\AnimeDbShikimoriWidgetBundleExtension;
+use AnimeDb\Bundle\ShikimoriWidgetBundle\DependencyInjection\AnimeDbShikimoriWidgetExtension;
 
 /**
  * Test DependencyInjection
@@ -18,14 +18,14 @@ use AnimeDb\Bundle\ShikimoriWidgetBundle\DependencyInjection\AnimeDbShikimoriWid
  * @package AnimeDb\Bundle\ShikimoriWidgetBundle\Tests\DependencyInjection
  * @author  Peter Gribanov <info@peter-gribanov.ru>
  */
-class AnimeDbShikimoriWidgetBundleExtensionTest extends \PHPUnit_Framework_TestCase
+class AnimeDbShikimoriWidgetExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Test load
      */
     public function testLoad()
     {
-        $di = new AnimeDbShikimoriWidgetBundleExtension();
+        $di = new AnimeDbShikimoriWidgetExtension();
         $di->load([], $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder'));
     }
 }
