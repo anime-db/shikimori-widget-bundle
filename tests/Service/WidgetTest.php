@@ -69,7 +69,7 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
         $this->browser = $this->getMockBuilder('\AnimeDb\Bundle\ShikimoriBrowserBundle\Service\Browser')
             ->disableOriginalConstructor()
             ->getMock();
-        $this->repository = $this->getMockBuilder('\Doctrine\ORM\EntityRepository')
+        $this->repository = $this->getMockBuilder('\Doctrine\Common\Persistence\ObjectRepository')
             ->disableOriginalConstructor()
             ->getMock();
         $doctrine = $this->getMockBuilder('\Doctrine\Bundle\DoctrineBundle\Registry')

@@ -77,7 +77,7 @@ class Widget
     /**
      * Repository
      *
-     * @var \Doctrine\ORM\EntityRepository
+     * @var \Doctrine\Common\Persistence\ObjectRepository
      */
     protected $repository;
 
