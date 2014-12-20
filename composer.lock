@@ -4,24 +4,25 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6e3e5883ce17f41da4fbab4ea8ae9153",
+    "hash": "b4ed54e33c13a8d8c2a2c2f3a25356d2",
     "packages": [
         {
             "name": "anime-db/anime-db",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anime-db/anime-db.git",
-                "reference": "caf7fc02e9284671f90055de993669f39a9be3e4"
+                "reference": "9e6a80f4438f06c53a0262f56c690c9f6384c42a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anime-db/anime-db/zipball/caf7fc02e9284671f90055de993669f39a9be3e4",
-                "reference": "caf7fc02e9284671f90055de993669f39a9be3e4",
+                "url": "https://api.github.com/repos/anime-db/anime-db/zipball/9e6a80f4438f06c53a0262f56c690c9f6384c42a",
+                "reference": "9e6a80f4438f06c53a0262f56c690c9f6384c42a",
                 "shasum": ""
             },
             "require": {
-                "anime-db/catalog-bundle": "dev-develop",
+                "anime-db/catalog-bundle": ">=0.4.7",
+                "anime-db/shmop": "1.0.*",
                 "avalanche123/imagine-bundle": "2.*",
                 "composer/composer": "1.0.*",
                 "doctrine/doctrine-bundle": "1.2.*",
@@ -42,18 +43,8 @@
                 "symfony/assetic-bundle": "2.3.*",
                 "symfony/monolog-bundle": "2.3.*",
                 "symfony/swiftmailer-bundle": "2.3.*",
-                "symfony/symfony": "2.5.*",
+                "symfony/symfony": ">=2.5.0,<2.5.x-dev",
                 "twig/extensions": "1.0.*"
-            },
-            "require-dev": {
-                "anime-db/ani-db-filler-bundle": "dev-develop",
-                "anime-db/catalog-bundle": "dev-develop",
-                "anime-db/item-folder-filler-bundle": "dev-develop",
-                "anime-db/shikimori-filler-bundle": "dev-develop",
-                "anime-db/shikimori-new-items-widget-bundle": "dev-develop",
-                "anime-db/shikimori-related-items-widget-bundle": "dev-develop",
-                "anime-db/shikimori-similar-items-widget-bundle": "dev-develop",
-                "anime-db/world-art-filler-bundle": "dev-develop"
             },
             "suggest": {
                 "ext-apc": "Allows use APC for autoloading to improve performance",
@@ -94,20 +85,20 @@
             ],
             "description": "The application for making home collection anime",
             "homepage": "http://anime-db.org",
-            "time": "2014-10-09 11:27:48"
+            "time": "2014-12-17 10:25:38"
         },
         {
             "name": "anime-db/api-client-bundle",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anime-db/api-client-bundle.git",
-                "reference": "c823a76d68dc3beedc4e9062899bff7d6bea89a6"
+                "reference": "92bd5fa77081acc6ecf3777ba8f64676beba5f17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anime-db/api-client-bundle/zipball/c823a76d68dc3beedc4e9062899bff7d6bea89a6",
-                "reference": "c823a76d68dc3beedc4e9062899bff7d6bea89a6",
+                "url": "https://api.github.com/repos/anime-db/api-client-bundle/zipball/92bd5fa77081acc6ecf3777ba8f64676beba5f17",
+                "reference": "92bd5fa77081acc6ecf3777ba8f64676beba5f17",
                 "shasum": ""
             },
             "require": {
@@ -141,24 +132,24 @@
             ],
             "description": "API client bundle for Anime DB",
             "homepage": "http://anime-db.org",
-            "time": "2014-09-08 13:31:29"
+            "time": "2014-12-11 07:42:07"
         },
         {
             "name": "anime-db/app-bundle",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anime-db/app-bundle.git",
-                "reference": "965adc887452de1c4754bca0d7d376906436ef97"
+                "reference": "b04d1fbcafc193e213dc8f9423365a383cadd941"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anime-db/app-bundle/zipball/965adc887452de1c4754bca0d7d376906436ef97",
-                "reference": "965adc887452de1c4754bca0d7d376906436ef97",
+                "url": "https://api.github.com/repos/anime-db/app-bundle/zipball/b04d1fbcafc193e213dc8f9423365a383cadd941",
+                "reference": "b04d1fbcafc193e213dc8f9423365a383cadd941",
                 "shasum": ""
             },
             "require": {
-                "anime-db/anime-db": "dev-develop",
+                "anime-db/anime-db": ">=0.3.15",
                 "anime-db/api-client-bundle": "0.1.*",
                 "anime-db/cache-time-keeper-bundle": "1.0.*",
                 "patchwork/utf8": "1.2.*",
@@ -193,20 +184,20 @@
             ],
             "description": "The application for making home collection anime",
             "homepage": "http://anime-db.org",
-            "time": "2014-10-09 09:28:14"
+            "time": "2014-12-16 16:03:20"
         },
         {
             "name": "anime-db/cache-time-keeper-bundle",
-            "version": "1.0.3",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anime-db/cache-time-keeper-bundle.git",
-                "reference": "ec40eeb1af93886f269971b6cb8dd9c07393b14c"
+                "reference": "8474c54a9c2c7f081d62a699dff2782c350d3efa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anime-db/cache-time-keeper-bundle/zipball/ec40eeb1af93886f269971b6cb8dd9c07393b14c",
-                "reference": "ec40eeb1af93886f269971b6cb8dd9c07393b14c",
+                "url": "https://api.github.com/repos/anime-db/cache-time-keeper-bundle/zipball/8474c54a9c2c7f081d62a699dff2782c350d3efa",
+                "reference": "8474c54a9c2c7f081d62a699dff2782c350d3efa",
                 "shasum": ""
             },
             "require": {
@@ -240,29 +231,30 @@
                 "php",
                 "shmop"
             ],
-            "time": "2014-09-01 14:46:36"
+            "time": "2014-12-13 11:01:45"
         },
         {
             "name": "anime-db/catalog-bundle",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anime-db/catalog-bundle.git",
-                "reference": "ca8c9ac4c4d78e050a91e69a31cbe89fdedf59f1"
+                "reference": "1c84d3c93bdd0534d454226de4ed1b1590351752"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anime-db/catalog-bundle/zipball/ca8c9ac4c4d78e050a91e69a31cbe89fdedf59f1",
-                "reference": "ca8c9ac4c4d78e050a91e69a31cbe89fdedf59f1",
+                "url": "https://api.github.com/repos/anime-db/catalog-bundle/zipball/1c84d3c93bdd0534d454226de4ed1b1590351752",
+                "reference": "1c84d3c93bdd0534d454226de4ed1b1590351752",
                 "shasum": ""
             },
             "require": {
-                "anime-db/app-bundle": "dev-develop",
+                "anime-db/app-bundle": ">=0.4.0",
                 "ext-mbstring": "*",
                 "knplabs/knp-menu-bundle": "1.1.*",
                 "php": ">=5.4.0"
             },
             "suggest": {
+                "anime-db/ani-db-filler-bundle": "Allows import data from a site AniDB.net",
                 "anime-db/shikimori-filler-bundle": "Allows import data from a site Shikimori.org",
                 "anime-db/world-art-filler-bundle": "Allows import data from a site World-Art.ru"
             },
@@ -292,7 +284,7 @@
             ],
             "description": "The application for making home collection anime",
             "homepage": "http://anime-db.org",
-            "time": "2014-10-09 12:41:19"
+            "time": "2014-12-17 08:04:18"
         },
         {
             "name": "anime-db/shikimori-browser-bundle",
@@ -324,6 +316,48 @@
             "description": "Plugin Shikimori for the catalog Anime DB",
             "homepage": "http://github.com/anime-db/shikimori-browser-bundle",
             "time": "2014-04-04 12:28:38"
+        },
+        {
+            "name": "anime-db/shmop",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anime-db/shmop.git",
+                "reference": "175c8cec3a2ae4225e3c017f2df0a5a7ac7778bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anime-db/shmop/zipball/175c8cec3a2ae4225e3c017f2df0a5a7ac7778bf",
+                "reference": "175c8cec3a2ae4225e3c017f2df0a5a7ac7778bf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-shmop": "*",
+                "php": ">=5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AnimeDb\\Shmop\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Gribanov",
+                    "email": "info@peter-gribanov.ru"
+                }
+            ],
+            "description": "Shmop is a simple and small abstraction layer for shared memory manipulation using PHP",
+            "homepage": "http://github.com/anime-db/shmop",
+            "keywords": [
+                "php",
+                "shmop"
+            ],
+            "time": "2014-12-16 10:27:26"
         },
         {
             "name": "avalanche123/imagine-bundle",
@@ -421,24 +455,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "73e9db5d9952d52a46ecbc20a269a8c5f9c5b011"
+                "reference": "a422d67e2701860a44a4634f62f88b58b8636468"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/73e9db5d9952d52a46ecbc20a269a8c5f9c5b011",
-                "reference": "73e9db5d9952d52a46ecbc20a269a8c5f9c5b011",
+                "url": "https://api.github.com/repos/composer/composer/zipball/a422d67e2701860a44a4634f62f88b58b8636468",
+                "reference": "a422d67e2701860a44a4634f62f88b58b8636468",
                 "shasum": ""
             },
             "require": {
                 "justinrainbow/json-schema": "~1.1",
                 "php": ">=5.3.2",
-                "seld/jsonlint": "1.*",
+                "seld/jsonlint": "~1.0",
                 "symfony/console": "~2.3",
                 "symfony/finder": "~2.2",
                 "symfony/process": "~2.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "~3.7"
+                "phpunit/phpunit": "~4.0"
             },
             "suggest": {
                 "ext-openssl": "Enabling the openssl extension allows you to access https URLs for repositories and packages",
@@ -481,7 +515,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2014-10-07 15:03:19"
+            "time": "2014-12-18 10:37:32"
         },
         {
             "name": "doctrine/annotations",
@@ -489,12 +523,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633"
+                "reference": "04fb8c20354236bf72d194400a345c8f43191b99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/6a6bec0670bb6e71a263b08bc1b98ea242928633",
-                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/04fb8c20354236bf72d194400a345c8f43191b99",
+                "reference": "04fb8c20354236bf72d194400a345c8f43191b99",
                 "shasum": ""
             },
             "require": {
@@ -549,7 +583,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2014-09-25 16:45:30"
+            "time": "2014-12-18 18:33:26"
         },
         {
             "name": "doctrine/cache",
@@ -557,12 +591,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "f7a1d660c521461b835dc31af0f6c9836769e917"
+                "reference": "803a41469d948bc120a6c913399e8bfc8b5d9650"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/f7a1d660c521461b835dc31af0f6c9836769e917",
-                "reference": "f7a1d660c521461b835dc31af0f6c9836769e917",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/803a41469d948bc120a6c913399e8bfc8b5d9650",
+                "reference": "803a41469d948bc120a6c913399e8bfc8b5d9650",
                 "shasum": ""
             },
             "require": {
@@ -573,6 +607,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": ">=3.7",
+                "predis/predis": "~0.8",
                 "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
@@ -618,7 +653,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2014-09-29 13:28:56"
+            "time": "2014-12-08 23:13:26"
         },
         {
             "name": "doctrine/collections",
@@ -626,12 +661,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "8c5148e0ef8cee4afe86d45ba98f7b6d96e780d0"
+                "reference": "38ed66e6606309bec203a9df506ffa26d956d21d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/8c5148e0ef8cee4afe86d45ba98f7b6d96e780d0",
-                "reference": "8c5148e0ef8cee4afe86d45ba98f7b6d96e780d0",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/38ed66e6606309bec203a9df506ffa26d956d21d",
+                "reference": "38ed66e6606309bec203a9df506ffa26d956d21d",
                 "shasum": ""
             },
             "require": {
@@ -684,7 +719,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2014-09-24 12:11:27"
+            "time": "2014-11-05 15:56:21"
         },
         {
             "name": "doctrine/common",
@@ -962,12 +997,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "8a0b96e65d2399d6f95b75de11134843a2c61feb"
+                "reference": "31df573a9f3797b8fc2fb92e4229a1c582d41598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/8a0b96e65d2399d6f95b75de11134843a2c61feb",
-                "reference": "8a0b96e65d2399d6f95b75de11134843a2c61feb",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/31df573a9f3797b8fc2fb92e4229a1c582d41598",
+                "reference": "31df573a9f3797b8fc2fb92e4229a1c582d41598",
                 "shasum": ""
             },
             "require": {
@@ -1021,7 +1056,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2014-10-05 18:49:49"
+            "time": "2014-12-17 14:32:07"
         },
         {
             "name": "doctrine/lexer",
@@ -1083,12 +1118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "1a9dffa64e33fdc10f4b4c3f5d7230b74d4a1021"
+                "reference": "96f838b4fa93693d19196c8e24ed5f1c3972ba87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/1a9dffa64e33fdc10f4b4c3f5d7230b74d4a1021",
-                "reference": "1a9dffa64e33fdc10f4b4c3f5d7230b74d4a1021",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/96f838b4fa93693d19196c8e24ed5f1c3972ba87",
+                "reference": "96f838b4fa93693d19196c8e24ed5f1c3972ba87",
                 "shasum": ""
             },
             "require": {
@@ -1133,7 +1168,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2014-08-18 18:03:07"
+            "time": "2014-12-19 17:14:47"
         },
         {
             "name": "doctrine/orm",
@@ -1288,12 +1323,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "d27346b6c8cb6a42092e763f8a2f674dfc560956"
+                "reference": "5e9f5528619bde654375c012ac172fb199f43dda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/d27346b6c8cb6a42092e763f8a2f674dfc560956",
-                "reference": "d27346b6c8cb6a42092e763f8a2f674dfc560956",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/5e9f5528619bde654375c012ac172fb199f43dda",
+                "reference": "5e9f5528619bde654375c012ac172fb199f43dda",
                 "shasum": ""
             },
             "require": {
@@ -1372,7 +1407,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-09-16 21:19:27"
+            "time": "2014-12-18 23:26:35"
         },
         {
             "name": "imagine/imagine",
@@ -1424,16 +1459,15 @@
         {
             "name": "incenteev/composer-parameter-handler",
             "version": "dev-master",
-            "target-dir": "Incenteev/ParameterHandler",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Incenteev/ParameterHandler.git",
-                "reference": "ea15f3dd22e5720eec244afb9bf2d5737a0b6c76"
+                "reference": "8f9608d4bcbfbc9ccc6878e8068341e127037e76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/ea15f3dd22e5720eec244afb9bf2d5737a0b6c76",
-                "reference": "ea15f3dd22e5720eec244afb9bf2d5737a0b6c76",
+                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/8f9608d4bcbfbc9ccc6878e8068341e127037e76",
+                "reference": "8f9608d4bcbfbc9ccc6878e8068341e127037e76",
                 "shasum": ""
             },
             "require": {
@@ -1452,8 +1486,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Incenteev\\ParameterHandler": ""
+                "psr-4": {
+                    "Incenteev\\ParameterHandler\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1471,7 +1505,7 @@
             "keywords": [
                 "parameters management"
             ],
-            "time": "2014-08-20 22:30:03"
+            "time": "2014-12-17 16:24:52"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1640,7 +1674,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1691,7 +1725,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1711,12 +1745,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "ddaccff1bd80bd8721a56e0d36bb141363bf3605"
+                "reference": "02105abcd35fb32933bc566e4c3bec84c612e9c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/ddaccff1bd80bd8721a56e0d36bb141363bf3605",
-                "reference": "ddaccff1bd80bd8721a56e0d36bb141363bf3605",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/02105abcd35fb32933bc566e4c3bec84c612e9c1",
+                "reference": "02105abcd35fb32933bc566e4c3bec84c612e9c1",
                 "shasum": ""
             },
             "require": {
@@ -1774,7 +1808,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2014-04-26 15:49:46"
+            "time": "2014-12-12 05:37:00"
         },
         {
             "name": "monolog/monolog",
@@ -1782,12 +1816,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "940cbe15abe36924e5693abb585215bb322686a7"
+                "reference": "5bee6fe56c2e8d1fc22b5188d49b6a2500df065f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/940cbe15abe36924e5693abb585215bb322686a7",
-                "reference": "940cbe15abe36924e5693abb585215bb322686a7",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5bee6fe56c2e8d1fc22b5188d49b6a2500df065f",
+                "reference": "5bee6fe56c2e8d1fc22b5188d49b6a2500df065f",
                 "shasum": ""
             },
             "require": {
@@ -1846,20 +1880,20 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-10-04 15:43:06"
+            "time": "2014-12-17 10:47:08"
         },
         {
             "name": "patchwork/utf8",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "2e98a87caf5bcef78a369e03fac0ae806060196e"
+                "url": "https://github.com/tchwork/utf8.git",
+                "reference": "3024ee72d0ce7fc4bf87421f2954f956d3ad2ee5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/2e98a87caf5bcef78a369e03fac0ae806060196e",
-                "reference": "2e98a87caf5bcef78a369e03fac0ae806060196e",
+                "url": "https://api.github.com/repos/tchwork/utf8/zipball/3024ee72d0ce7fc4bf87421f2954f956d3ad2ee5",
+                "reference": "3024ee72d0ce7fc4bf87421f2954f956d3ad2ee5",
                 "shasum": ""
             },
             "require": {
@@ -1890,19 +1924,19 @@
             "authors": [
                 {
                     "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com",
-                    "role": "Developer"
+                    "email": "p@tchwork.com"
                 }
             ],
-            "description": "Extensive, portable and performant handling of UTF-8 and grapheme clusters for PHP",
-            "homepage": "https://github.com/nicolas-grekas/Patchwork-UTF8",
+            "description": "Portable and performant UTF-8, Unicode and Grapheme Clusters for PHP",
+            "homepage": "https://github.com/tchwork/utf8",
             "keywords": [
+                "grapheme",
                 "i18n",
                 "unicode",
                 "utf-8",
                 "utf8"
             ],
-            "time": "2014-08-05 10:00:12"
+            "time": "2014-11-10 16:16:54"
         },
         {
             "name": "psr/log",
@@ -2000,12 +2034,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "715fcb65f9a4841ffaf40c0bf050329d74c84cad"
+                "reference": "ddcfeaeb504ece5de546dbefd5c527eed7453048"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/715fcb65f9a4841ffaf40c0bf050329d74c84cad",
-                "reference": "715fcb65f9a4841ffaf40c0bf050329d74c84cad",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/ddcfeaeb504ece5de546dbefd5c527eed7453048",
+                "reference": "ddcfeaeb504ece5de546dbefd5c527eed7453048",
                 "shasum": ""
             },
             "require": {
@@ -2037,7 +2071,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2014-09-03 12:25:05"
+            "time": "2014-12-03 13:50:45"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2144,12 +2178,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "613354e08fbddce0943646932b007be9873c658f"
+                "reference": "e29c7b692bae6610b137670d6749151fd6e41608"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/613354e08fbddce0943646932b007be9873c658f",
-                "reference": "613354e08fbddce0943646932b007be9873c658f",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e29c7b692bae6610b137670d6749151fd6e41608",
+                "reference": "e29c7b692bae6610b137670d6749151fd6e41608",
                 "shasum": ""
             },
             "require": {
@@ -2188,7 +2222,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-10-05 19:53:07"
+            "time": "2014-12-05 14:17:46"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -2319,12 +2353,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/SwiftmailerBundle.git",
-                "reference": "0479e02dccbdcff3b2a84078f005d7fc4879925f"
+                "reference": "b5281c8cacdea3eab8c80c88df9e00fde1ea2b34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/0479e02dccbdcff3b2a84078f005d7fc4879925f",
-                "reference": "0479e02dccbdcff3b2a84078f005d7fc4879925f",
+                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/b5281c8cacdea3eab8c80c88df9e00fde1ea2b34",
+                "reference": "b5281c8cacdea3eab8c80c88df9e00fde1ea2b34",
                 "shasum": ""
             },
             "require": {
@@ -2368,20 +2402,20 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2014-10-04 11:27:34"
+            "time": "2014-12-20 09:22:58"
         },
         {
             "name": "symfony/symfony",
-            "version": "2.5.x-dev",
+            "version": "v2.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "d2c6c340676181a6701cad52788eee9c4cabc72a"
+                "reference": "00da57005c9c76773670f4d958dd95e9f4ae72f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d2c6c340676181a6701cad52788eee9c4cabc72a",
-                "reference": "d2c6c340676181a6701cad52788eee9c4cabc72a",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/00da57005c9c76773670f4d958dd95e9f4ae72f6",
+                "reference": "00da57005c9c76773670f4d958dd95e9f4ae72f6",
                 "shasum": ""
             },
             "require": {
@@ -2439,10 +2473,10 @@
                 "doctrine/dbal": "~2.2",
                 "doctrine/orm": "~2.2,>=2.2.3",
                 "egulias/email-validator": "~1.2",
-                "ircmaxell/password-compat": "1.0.*",
+                "ircmaxell/password-compat": "~1.0",
                 "monolog/monolog": "~1.3",
                 "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
-                "propel/propel1": "1.6.*"
+                "propel/propel1": "~1.6"
             },
             "type": "library",
             "extra": {
@@ -2481,19 +2515,19 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-10-07 12:35:25"
+            "time": "2014-12-03 14:18:17"
         },
         {
             "name": "twig/extensions",
             "version": "v1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig-extensions.git",
+                "url": "https://github.com/twigphp/Twig-extensions.git",
                 "reference": "f91a82ec225e5bb108e01a0f93c9be04f84dcfa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/f91a82ec225e5bb108e01a0f93c9be04f84dcfa0",
+                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/f91a82ec225e5bb108e01a0f93c9be04f84dcfa0",
                 "reference": "f91a82ec225e5bb108e01a0f93c9be04f84dcfa0",
                 "shasum": ""
             },
@@ -2518,9 +2552,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Common additional features for Twig that do not directly belong in core",
@@ -2537,13 +2569,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig.git",
-                "reference": "9fb15e343e881c9a89b97ee2262d7b8fbf512c6e"
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "a1b847b3a3c835a495329b0ada8f3ec68a90fc9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/9fb15e343e881c9a89b97ee2262d7b8fbf512c6e",
-                "reference": "9fb15e343e881c9a89b97ee2262d7b8fbf512c6e",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/a1b847b3a3c835a495329b0ada8f3ec68a90fc9d",
+                "reference": "a1b847b3a3c835a495329b0ada8f3ec68a90fc9d",
                 "shasum": ""
             },
             "require": {
@@ -2578,7 +2610,7 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "https://github.com/fabpot/Twig/graphs/contributors",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
                     "role": "Contributors"
                 }
             ],
@@ -2587,26 +2619,26 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-01 17:51:59"
+            "time": "2014-12-05 13:47:49"
         }
     ],
     "packages-dev": [
         {
             "name": "anime-db/shikimori-filler-bundle",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anime-db/shikimori-filler-bundle.git",
-                "reference": "48b92d9c265a7463dba54160d38e45d44660acc0"
+                "reference": "8a371172c71bcc8af5f6f5d8e31b6c862e8e8fa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anime-db/shikimori-filler-bundle/zipball/48b92d9c265a7463dba54160d38e45d44660acc0",
-                "reference": "48b92d9c265a7463dba54160d38e45d44660acc0",
+                "url": "https://api.github.com/repos/anime-db/shikimori-filler-bundle/zipball/8a371172c71bcc8af5f6f5d8e31b6c862e8e8fa7",
+                "reference": "8a371172c71bcc8af5f6f5d8e31b6c862e8e8fa7",
                 "shasum": ""
             },
             "require": {
-                "anime-db/catalog-bundle": "dev-develop",
+                "anime-db/catalog-bundle": ">=0.4.17",
                 "anime-db/shikimori-browser-bundle": "0.1.*",
                 "php": ">=5.4.0"
             },
@@ -2622,16 +2654,14 @@
             ],
             "description": "Plugin Shikimori for the catalog Anime DB",
             "homepage": "http://github.com/anime-db/shikimori-filler-bundle",
-            "time": "2014-10-09 09:48:29"
+            "time": "2014-12-20 17:26:22"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "anime-db/catalog-bundle": 20,
-        "anime-db/shikimori-filler-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.4.0"
     },
